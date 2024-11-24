@@ -2,10 +2,10 @@
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'
 import React from "react";
-import "./App.css"
+import "./index.css"
 
 
-function App(): JSX.Element {
+function Logeo(): JSX.Element {
   return (
     <div className="grid "> 
       <div>
@@ -19,7 +19,4 @@ function App(): JSX.Element {
   );
 }
 
-
-
-
-export default App;
+export default Logeo;

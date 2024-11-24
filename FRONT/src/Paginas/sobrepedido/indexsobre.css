@@ -1,0 +1,159 @@
+/* General */
+.container {
+    font-family: Arial, sans-serif;
+    width: 1920px;
+    height: 1080px;
+    margin: 0 auto;
+    background-color: #f8f5fa;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    color: #a152b4;
+    font-size: 36px;
+    margin: 0;
+  }
+  
+  .search-bar {
+    flex: 1;
+    margin: 0 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .menu-icon {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .breadcrumb a {
+    color: #a152b4;
+    text-decoration: none;
+  }
+  
+  .breadcrumb span {
+    color: #666;
+  }
+  
+  .breadcrumb {
+    margin-bottom: 20px;
+  }
+  
+  /* Elección de modelo */
+  .model-selection {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .model-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .model-preview {
+    text-align: center;
+  }
+  
+  .model-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .model-right p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  /* Botones */
+  .button-primary {
+    background-color: #ff6af1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button-primary:hover {
+    background-color: #ff3ec9;
+  }
+  
+  .button-secondary {
+    background-color: #ddd;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Detalles del pedido */
+  .order-details {
+    margin-bottom: 20px;
+  }
+  
+  .details-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .sizes {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .size-input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+  }
+  
+  /* Cliente */
+  .client-details {
+    margin-bottom: 20px;
+  }
+  
+  .client-input {
+    width: 300px;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .client-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  
+  .create-order-button {
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+    text-align: center;
+  }
+  
