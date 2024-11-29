@@ -10,7 +10,6 @@ import CrearPedido from './Paginas/crearpedido/indexcrepe'
 import CrearModelo from './Paginas/crearmodelo/Indexcremo'
 
 import './index.css'
-import 'todomvc-app-css/index.css'
 
 
 const rutas = createBrowserRouter([
