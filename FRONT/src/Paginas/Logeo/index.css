@@ -1,111 +1,21 @@
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #ffece4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .container {
-  display: flex;
-  flex-direction: row; /* Garantiza que los elementos estén uno al lado del otro */
-  width: 100%;
-  height: 100%;
-}
-
-.login-section {
-  width: 50%;
-  background-color: #fff;
-  padding: 4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.brand-title {
-  font-size: 2.5rem;
-  color: #ac6cdb;
-  margin-bottom: 0.5rem;
-}
-
-.welcome-text {
-  font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 2rem;
-}
-
-.login-title {
-  font-size: 1.8rem;
-  color: #fc9a03;
-  margin-bottom: 2rem;
-}
-
-.login-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.input-field {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  margin: 0.5rem 0 1rem 0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-.forgot-password {
-  font-size: 0.9rem;
-  color: #999;
-  text-decoration: none;
-  align-self: flex-end;
-  margin-bottom: 1.5rem;
-}
-
-.forgot-password:hover {
-  color: #fc9a03;
-}
-
-.login-button {
-  padding: 1rem 2rem;
-  background-color: #ff7545;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.login-button:hover {
-  background-color: #fc9a03;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
 }
 
 .logo-section {
-  margin-top: -640px; /* Mueve hacia arriba */
-  margin-left: 1080px; /* Mueve hacia la derecha */
-  width: 1350px; /* Ajusta el ancho a un valor fijo */
-  height: 1350px; /* Ajusta la altura a un valor fijo (requerido para mantener círculo) */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(
-    135deg,
-    #ffece4 25%,
-    #fff6f2 50%,
-    #e6e6ff 75%
-  
-  );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
 }
 
 .logo-image {
-  max-width: 80%;
-  height: auto;
-  border-radius: 50%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: auto;
+    margin: 1px;
 }
