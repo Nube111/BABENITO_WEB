@@ -1,0 +1,142 @@
+/* indexcrepe.css */
+
+.crear-pedido-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f3e8ff; /* Fondo morado pastel */
+  }
+  
+  .crear-pedido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 10px 20px;
+    background-color: #e0c3fc; /* Fondo morado pastel más oscuro */
+    border-bottom: 1px solid #d1b3ff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .crear-pedido-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #5a189a; /* Color morado oscuro */
+  }
+  
+  .crear-pedido-search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .crear-pedido-menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .crear-pedido-menu span {
+    margin-right: 20px;
+    cursor: pointer;
+    color: #5a189a; /* Color morado oscuro */
+    font-weight: 500;
+  }
+  
+  .crear-pedido-menu-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  .crear-pedido-main-content {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .crear-pedido-breadcrumb {
+    margin-bottom: 20px;
+    font-size: 0.875rem;
+    color: #6c757d;
+  }
+  
+  .crear-pedido-model-section {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .crear-pedido-model-left,
+  .crear-pedido-model-right {
+    width: 48%;
+  }
+  
+  .crear-pedido-section-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #495057;
+  }
+  
+  .crear-pedido-model-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .crear-pedido-model-preview {
+    text-align: center;
+  }
+  
+  .crear-pedido-model-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .crear-pedido-model-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #5a189a; /* Color morado oscuro */
+  }
+  
+  .crear-pedido-model-description {
+    font-size: 1rem;
+    color: #6c757d;
+  }
+  
+  .crear-pedido-model-info {
+    font-size: 0.875rem;
+    color: #6c757d;
+  }
+  
+  .crear-pedido-attributes-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .crear-pedido-attribute {
+    width: 48%;
+    margin-bottom: 20px;
+  }
