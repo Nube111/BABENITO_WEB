@@ -8,23 +8,23 @@ function CrearPedido(): JSX.Element {
     const formData = new FormData(e.currentTarget);
 
     const data = {
-      planta: "planta",
-      cod_venta: "cod_venta",
-      cod_cortado: "cod_cortado",
-      c_cuero: "c_cuero",
-      desc_serie: "desc_serie",
-      color_forro: "color_forro",
-      material: "material",
-      descripcion_aplique: "descripcion_aplique",
-      color_aplique: "color_aplique",
-      codigo_apliques: "codigo_apliques",
-      nom_adorno: "nom_adorno",
-      num_adorno: "num_adorno",
-      codigo_picador: "codigo_picador",
-      descripcion_picador: "descripcion_picador",
-      color_picador: "color_picador",
-      color_hilo: "color_hilo",
-      numero_hilo: "numero_hilo",
+      planta: formData.get["planta"],
+      cod_venta: formData.get["cod_venta"],
+      cod_cortado: formData.get["cod_cortado"],
+      c_cuero: formData.get["c_cuero"],
+      desc_serie: formData.get["desc_serie"],
+      color_forro: formData.get["color_forro"],
+      material: formData.get["material"],
+      descripcion_aplique: formData.get["descripcion_aplique"],
+      color_aplique: formData.get["color_aplique"],
+      codigo_apliques: formData.get["codigo_apliques"],
+      nom_adorno: formData.get["nom_adorno"],
+      num_adorno: formData.get["num_adorno"],
+      codigo_picador: formData.get["codigo_picador"],
+      descripcion_picador: formData.get["descripcion_picador"],
+      color_picador: formData.get["color_picador"],
+      color_hilo: formData.get["color_hilo"],
+      numero_hilo: formData.get["numero_hilo"],
     };
 
     console.log(data)
@@ -90,56 +90,61 @@ function CrearPedido(): JSX.Element {
               <input
                 type="text"
                 placeholder="Planta"
+                name="planta"
                 className="crear-pedido-model-input"
               />
               <input
                 type="text"
                 placeholder="Serie"
+                name="desc_serie"
                 className="crear-pedido-model-input"
               />
               <input
                 type="text"
                 placeholder="Color de cuero"
+                name="c_cuero"
                 className="crear-pedido-model-input"
               />
               <input
                 type="text"
                 placeholder="Código de venta"
                 className="crear-pedido-model-input"
+                name="cod_venta"
               />
               <input
                 type="text"
                 placeholder="Código de cortada"
                 className="crear-pedido-model-input"
+                name="cod_cortado"
               />
             </div>
             <section className="crear-pedido-attributes-section">
               <div className="crear-pedido-attribute">
                 <label className="crear-pedido-section-label">Forro</label>
-                <input type="text" placeholder="Color" className="crear-pedido-model-input" />
-                <input type="text" placeholder="Material" className="crear-pedido-model-input" />
+                <input type="text" placeholder="Color" className="crear-pedido-model-input" name="color_forro" />
+                <input type="text" placeholder="Material" className="crear-pedido-model-input" name="material" />
               </div>
               <div className="crear-pedido-attribute">
                 <label className="crear-pedido-section-label">Hilo</label>
-                <input type="text" placeholder="Color" className="crear-pedido-model-input" />
-                <input type="text" placeholder="Número" className="crear-pedido-model-input" />
+                <input type="text" placeholder="Color" className="crear-pedido-model-input" name="color_hilo" />
+                <input type="text" placeholder="Número" className="crear-pedido-model-input" name="numero_hilo" />
               </div>
               <div className="crear-pedido-attribute">
                 <label className="crear-pedido-section-label">Adorno</label>
-                <input type="text" placeholder="Nombre" className="crear-pedido-model-input" />
-                <input type="text" placeholder="Número" className="crear-pedido-model-input" />
+                <input type="text" placeholder="Nombre" className="crear-pedido-model-input" name="nom_adorno"/>
+                <input type="text" placeholder="Número" className="crear-pedido-model-input" name="num_adorno" />
               </div>
               <div className="crear-pedido-attribute">
                 <label className="crear-pedido-section-label">Picadores</label>
-                <input type="text" placeholder="Código" className="crear-pedido-model-input" />
-                <input type="text" placeholder="Color" className="crear-pedido-model-input" />
-                <input type="text" placeholder="Descripción" className="crear-pedido-model-input" />
+                <input type="text" placeholder="Código" className="crear-pedido-model-input" name="codigo_picador" />
+                <input type="text" placeholder="Color" className="crear-pedido-model-input" name="color_picador" />
+                <input type="text" placeholder="Descripción" className="crear-pedido-model-input" name="descripcion_picador" />
               </div>
               <div className="crear-pedido-attribute">
                 <label className="crear-pedido-section-label">Apliques</label>
-                <input type="text" placeholder="Código" className="crear-pedido-model-input" />
-                <input type="text" placeholder="Color" className="crear-pedido-model-input" />
-                <input type="text" placeholder="Descripción" className="crear-pedido-model-input" />
+                <input type="text" placeholder="Código" className="crear-pedido-model-input" name="codigo_apliques" />
+                <input type="text" placeholder="Color" className="crear-pedido-model-input" name="color_apliques" />
+                <input type="text" placeholder="Descripción" className="crear-pedido-model-input" name="descripcion_apliques" />
               </div>
             </section>
             <section className="crear-pedido-button-section">
