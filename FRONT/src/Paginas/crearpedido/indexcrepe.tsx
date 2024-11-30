@@ -3,6 +3,48 @@ import "./indexcrepe.css";
 import "./FormularioCrearModelo"; // 
 
 function CrearPedido(): JSX.Element {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+
+    const data = {
+      planta: formData.get("planta"),
+      serie: formData.get("serie"),
+      colorCuero: formData.get("colorCuero"),
+      codigoVenta: formData.get("codigoVenta"),
+      codigoCortada: formData.get("codigoCortada"),
+      forroColor: formData.get("forroColor"),
+      forroMaterial: formData.get("forroMaterial"),
+      hiloColor: formData.get("hiloColor"),
+      hiloNumero: formData.get("hiloNumero"),
+      adornoNombre: formData.get("adornoNombre"),
+      adornoNumero: formData.get("adornoNumero"),
+      picadoresCodigo: formData.get("picadoresCodigo"),
+      picadoresColor: formData.get("picadoresColor"),
+      picadoresDescripcion: formData.get("picadoresDescripcion"),
+      apliquesCodigo: formData.get("apliquesCodigo"),
+      apliquesColor: formData.get("apliquesColor"),
+      apliquesDescripcion: formData.get("apliquesDescripcion")
+    };
+
+    try {
+      const response = await fetch("http://localhost:4000/createModelo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+      if (response.ok) {
+        console.log("Pedido creado exitosamente");
+      } else {
+        console.error("Error al crear el pedido");
+      }
+    } catch (error) {
+      console.error("Error al enviar los datos:", error);
+    }
+  };
+
   return (
     <div className="crear-pedido-container">
       <header className="crear-pedido-header">
@@ -40,65 +82,67 @@ function CrearPedido(): JSX.Element {
               </p>
             </div>
           </div>
-          <div className="crear-pedido-model-right">
-            <input
-              type="text"
-              placeholder="Planta"
-              className="crear-pedido-model-input"
-            />
-            <input
-              type="text"
-              placeholder="Serie"
-              className="crear-pedido-model-input"
-            />
-            <input
-              type="text"
-              placeholder="Color de cuero"
-              className="crear-pedido-model-input"
-            />
-            <input
-              type="text"
-              placeholder="Código de venta"
-              className="crear-pedido-model-input"
-            />
-            <input
-              type="text"
-              placeholder="Código de cortada"
-              className="crear-pedido-model-input"
-            />
-          </div>
-        </section>
-        <section className="crear-pedido-attributes-section">
-          <div className="crear-pedido-attribute">
-            <label className="crear-pedido-section-label">Forro</label>
-            <input type="text" placeholder="Color" className="crear-pedido-model-input" />
-            <input type="text" placeholder="Material" className="crear-pedido-model-input" />
-          </div>
-          <div className="crear-pedido-attribute">
-            <label className="crear-pedido-section-label">Hilo</label>
-            <input type="text" placeholder="Color" className="crear-pedido-model-input" />
-            <input type="text" placeholder="Número" className="crear-pedido-model-input" />
-          </div>
-          <div className="crear-pedido-attribute">
-            <label className="crear-pedido-section-label">Adorno</label>
-            <input type="text" placeholder="Nombre" className="crear-pedido-model-input" />
-            <input type="text" placeholder="Número" className="crear-pedido-model-input" />
-          </div>
-          <div className="crear-pedido-attribute">
-            <label className="crear-pedido-section-label">Picadores</label>
-            <input type="text" placeholder="Código" className="crear-pedido-model-input" />
-            <input type="text" placeholder="Color" className="crear-pedido-model-input" />
-            <input type="text" placeholder="Descripción" className="crear-pedido-model-input" />
-          </div>
-          <div className="crear-pedido-attribute">
-            <label className="crear-pedido-section-label">Apliques</label>
-            <input type="text" placeholder="Código" className="crear-pedido-model-input" />
-            <input type="text" placeholder="Color" className="crear-pedido-model-input" />
-            <input type="text" placeholder="Descripción" className="crear-pedido-model-input" />
-          </div>
-        </section>
-        <section className="crear-pedido-button-section">
-          <button className="crear-pedido-submit-button">Crear Modelo</button>
+          <form className="crear-pedido-form" onSubmit={handleSubmit} >
+            <div className="crear-pedido-model-right">
+              <input
+                type="text"
+                placeholder="Planta"
+                className="crear-pedido-model-input"
+              />
+              <input
+                type="text"
+                placeholder="Serie"
+                className="crear-pedido-model-input"
+              />
+              <input
+                type="text"
+                placeholder="Color de cuero"
+                className="crear-pedido-model-input"
+              />
+              <input
+                type="text"
+                placeholder="Código de venta"
+                className="crear-pedido-model-input"
+              />
+              <input
+                type="text"
+                placeholder="Código de cortada"
+                className="crear-pedido-model-input"
+              />
+            </div>
+            <section className="crear-pedido-attributes-section">
+              <div className="crear-pedido-attribute">
+                <label className="crear-pedido-section-label">Forro</label>
+                <input type="text" placeholder="Color" className="crear-pedido-model-input" />
+                <input type="text" placeholder="Material" className="crear-pedido-model-input" />
+              </div>
+              <div className="crear-pedido-attribute">
+                <label className="crear-pedido-section-label">Hilo</label>
+                <input type="text" placeholder="Color" className="crear-pedido-model-input" />
+                <input type="text" placeholder="Número" className="crear-pedido-model-input" />
+              </div>
+              <div className="crear-pedido-attribute">
+                <label className="crear-pedido-section-label">Adorno</label>
+                <input type="text" placeholder="Nombre" className="crear-pedido-model-input" />
+                <input type="text" placeholder="Número" className="crear-pedido-model-input" />
+              </div>
+              <div className="crear-pedido-attribute">
+                <label className="crear-pedido-section-label">Picadores</label>
+                <input type="text" placeholder="Código" className="crear-pedido-model-input" />
+                <input type="text" placeholder="Color" className="crear-pedido-model-input" />
+                <input type="text" placeholder="Descripción" className="crear-pedido-model-input" />
+              </div>
+              <div className="crear-pedido-attribute">
+                <label className="crear-pedido-section-label">Apliques</label>
+                <input type="text" placeholder="Código" className="crear-pedido-model-input" />
+                <input type="text" placeholder="Color" className="crear-pedido-model-input" />
+                <input type="text" placeholder="Descripción" className="crear-pedido-model-input" />
+              </div>
+            </section>
+            <section className="crear-pedido-button-section">
+              <button type="submit" className="crear-pedido-submit-button">Crear Modelo</button>
+            </section>
+          </form>
         </section>
       </main>
     </div>

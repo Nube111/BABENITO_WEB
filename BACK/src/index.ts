@@ -1,16 +1,18 @@
 import express from 'express'
 import indexRutas from './rutas/index'
-import  {pool} from './database'
+import cors from "cors"
 
-const app = express ();
+const app = express();
+
+app.use(cors());
 
 //middlewars
 app.use(express.json()); // rspa 
-app.use(express.urlencoded({extended:false})); //enviar datos de forms se convierte en json
+app.use(express.urlencoded({ extended: false })); //enviar datos de forms se convierte en json
 
 //rutas
 
-app.use('/',indexRutas); 
+app.use('/', indexRutas);
 //console.log(pool)
 
 //servidor
