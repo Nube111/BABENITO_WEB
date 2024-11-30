@@ -8,24 +8,26 @@ function CrearPedido(): JSX.Element {
     const formData = new FormData(e.currentTarget);
 
     const data = {
-      planta: formData.get("planta"),
-      serie: formData.get("serie"),
-      colorCuero: formData.get("colorCuero"),
-      codigoVenta: formData.get("codigoVenta"),
-      codigoCortada: formData.get("codigoCortada"),
-      forroColor: formData.get("forroColor"),
-      forroMaterial: formData.get("forroMaterial"),
-      hiloColor: formData.get("hiloColor"),
-      hiloNumero: formData.get("hiloNumero"),
-      adornoNombre: formData.get("adornoNombre"),
-      adornoNumero: formData.get("adornoNumero"),
-      picadoresCodigo: formData.get("picadoresCodigo"),
-      picadoresColor: formData.get("picadoresColor"),
-      picadoresDescripcion: formData.get("picadoresDescripcion"),
-      apliquesCodigo: formData.get("apliquesCodigo"),
-      apliquesColor: formData.get("apliquesColor"),
-      apliquesDescripcion: formData.get("apliquesDescripcion")
+      planta: "planta",
+      cod_venta: "cod_venta",
+      cod_cortado: "cod_cortado",
+      c_cuero: "c_cuero",
+      desc_serie: "desc_serie",
+      color_forro: "color_forro",
+      material: "material",
+      descripcion_aplique: "descripcion_aplique",
+      color_aplique: "color_aplique",
+      codigo_apliques: "codigo_apliques",
+      nom_adorno: "nom_adorno",
+      num_adorno: "num_adorno",
+      codigo_picador: "codigo_picador",
+      descripcion_picador: "descripcion_picador",
+      color_picador: "color_picador",
+      color_hilo: "color_hilo",
+      numero_hilo: "numero_hilo",
     };
+
+    console.log(data)
 
     try {
       const response = await fetch("http://localhost:4000/createModelo", {
@@ -37,6 +39,7 @@ function CrearPedido(): JSX.Element {
       });
       if (response.ok) {
         console.log("Pedido creado exitosamente");
+        console.log("Datos recogidos del formulario:", data)
       } else {
         console.error("Error al crear el pedido");
       }
@@ -147,6 +150,7 @@ function CrearPedido(): JSX.Element {
       </main>
     </div>
   );
+  
 }
 
 export default CrearPedido;

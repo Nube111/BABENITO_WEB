@@ -22,6 +22,8 @@ function FormularioCrearModelo(): JSX.Element {
     numero_hilo: "",
   });
 
+
+  
   // Manejador para actualizar el estado al escribir en los campos
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
