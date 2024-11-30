@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./indexin.css";
 
 function Interfazp(): JSX.Element {
+  const [editableDate, setEditableDate] = useState("14 de Noviembre del 2024");
+
+  const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEditableDate(event.target.value);
+  };
+
+  const handleSearchClick = () => {
+    alert(`Buscando pedidos para la fecha: ${editableDate}`);
+  };
+
   return (
-    <div className="container">
+    <div className="container-interfazp">
       <header className="header">
         <h1>BABENITO</h1>
         <input
@@ -22,12 +32,26 @@ function Interfazp(): JSX.Element {
         </div>
       </header>
       <main className="main-content">
-        <button className="new-order-button">+ Crear nuevo pedido</button>
-        <p className="subtitle">
-          Para crear un nuevo pedido presionar el botón "Crear nuevo pedido"...
-        </p>
+        <div className="actions-row">
+          <p className="subtitle">
+            Para crear un nuevo pedido presionar el botón "Crear nuevo pedido"...
+          </p>
+          <button className="new-order-button">+ Crear nuevo pedido</button>
+        </div>
         <div className="orders-table">
-          <h2>Pedidos del 14 de Noviembre del 2024</h2>
+          <div className="editable-date">
+            <label htmlFor="editable-date-input">Pedidos del: </label>
+            <input
+              id="editable-date-input"
+              type="text"
+              value={editableDate}
+              onChange={handleDateChange}
+              className="date-input"
+            />
+            <button className="search-button" onClick={handleSearchClick}>
+              Buscar
+            </button>
+          </div>
           <table>
             <thead>
               <tr>

@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./indexsobre.css";
 
-
 function SobrePedido(): JSX.Element {
+  const [modelo, setModelo] = useState("901");
+  const [serie, setSerie] = useState("14-16");
+  const [tallas, setTallas] = useState({ "14": 14, "15": 10, "16": 10 });
+  const [clienteExistente, setClienteExistente] = useState("");
+  const [clienteNuevo, setClienteNuevo] = useState({
+    primerNombre: "Pedro",
+    primerApellido: "Viera",
+    segundoNombre: "Pablo",
+    segundoApellido: "Castañeda",
+    ruc: "20190388564",
+    razonSocial: "Empresa S.A.C",
+    dni: "72365296",
+    precio: "600",
+  });
+
+  const handleTallasChange = (key: string, value: string) => {
+    setTallas({ ...tallas, [key]: parseInt(value) || 0 });
+  };
+
+  const handleClienteNuevoChange = (key: string, value: string) => {
+    setClienteNuevo({ ...clienteNuevo, [key]: value });
+  };
+
   return (
-    <div className="container">
+    <div className="container-sobre">
       <header className="header">
         <h1 className="title">BABENITO</h1>
         <input
@@ -19,80 +41,89 @@ function SobrePedido(): JSX.Element {
       </header>
       <main className="content">
         <h2 className="breadcrumb">Pedidos &gt; Sobre pedido</h2>
-        <section className="form-container">
-          <div className="model-selection">
-            <h3>Elección de modelo</h3>
-            <div className="model-details">
-              <input type="text" placeholder="Código del modelo" value="901" />
-              <div className="model-info">
-                <img
-                  src="./modelo.jpg"
-                  alt="Modelo"
-                  className="model-image"
-                />
-                <div>
-                  <h4>Modelo 901</h4>
-                  <p>Datos esenciales del modelo...</p>
-                </div>
-              </div>
-              <p className="info-text">
-                En caso de no recordar el código del modelo en la parte derecha
-                tenemos un botón de lista de modelos donde podremos visualizar
-                todos los modelos y sus códigos, puede seleccionar el modelo
-                que se busca y el código se autocompletará. En caso de
-                seleccionar el modelo equivocado puede volver a seleccionar el
-                botón lista de modelos y volver a elegir.
-              </p>
-              <button className="model-list-button">Lista de modelos</button>
+        <section className="model-section">
+          <div className="model-left">
+            <label htmlFor="model-code" className="section-label">
+              Elección de modelo
+            </label>
+            <input
+              id="model-code"
+              type="text"
+              value={modelo}
+              onChange={(e) => setModelo(e.target.value)}
+              className="model-input"
+            />
+            <div className="model-preview">
+              <img src="./modelo.jpg" alt="Modelo" className="model-image" />
+              <p className="model-title">Modelo {modelo}</p>
+              <p className="model-description">Datos esenciales del modelo...</p>
             </div>
           </div>
-          <div className="order-details">
-            <h3>Datos específicos del pedido</h3>
-            <div className="form-grid">
-              <input type="text" placeholder="Serie" value="14-16" />
-              <button className="search-button">Buscar serie</button>
-              <div className="sizes">
-                <label>Cantidad por tallas:</label>
-                <input type="text" placeholder="14" value="14" />
-                <input type="text" placeholder="15" value="10" />
-                <input type="text" placeholder="16" value="10" />
-              </div>
+          <div className="model-right">
+            <p className="info-text">
+              En caso de no recordar el código del modelo, use el botón de lista
+              de modelos para visualizar todos los modelos y sus códigos. Puede
+              seleccionar un modelo para autocompletar el código.
+            </p>
+            <button className="model-list-button">Lista de modelos</button>
+          </div>
+        </section>
+        <section className="order-details">
+          <h3 className="section-label">Datos específicos del pedido</h3>
+          <div className="form-grid">
+            <input
+              type="text"
+              value={serie}
+              onChange={(e) => setSerie(e.target.value)}
+              className="order-input"
+              placeholder="Serie"
+            />
+            <button className="search-button">Buscar serie</button>
+            <div className="sizes">
+              <label className="size-label">Cantidad por tallas:</label>
+              {Object.keys(tallas).map((talla) => (
+                <input
+                  key={talla}
+                  type="text"
+                  value={tallas[talla]}
+                  onChange={(e) => handleTallasChange(talla, e.target.value)}
+                  className="size-input"
+                />
+              ))}
             </div>
           </div>
-          <div className="client-details">
-            <h3>Cliente</h3>
-            <div className="form-grid">
-              <div className="existing-client">
-                <label>Cliente existente:</label>
+        </section>
+        <section className="client-details">
+          <h3 className="section-label">Cliente</h3>
+          <div className="form-grid">
+            <div className="existing-client">
+              <label>Cliente existente:</label>
+              <input
+                type="text"
+                value={clienteExistente}
+                onChange={(e) => setClienteExistente(e.target.value)}
+                className="client-input"
+                placeholder="Nombre del cliente..."
+              />
+              <button className="search-button">Buscar cliente existente</button>
+            </div>
+            <div className="new-client">
+              <label>Cliente nuevo:</label>
+              {Object.keys(clienteNuevo).map((key) => (
                 <input
+                  key={key}
                   type="text"
-                  placeholder="Nombre del cliente..."
+                  placeholder={key
+                    .split(/(?=[A-Z])/)
+                    .join(" ")
+                    .toUpperCase()}
+                  value={clienteNuevo[key as keyof typeof clienteNuevo]}
+                  onChange={(e) =>
+                    handleClienteNuevoChange(key, e.target.value)
+                  }
+                  className="client-input"
                 />
-                <button className="search-button">Buscar cliente existente</button>
-              </div>
-              <div className="new-client">
-                <label>Cliente nuevo:</label>
-                <input type="text" placeholder="Primer nombre" value="Pedro" />
-                <input
-                  type="text"
-                  placeholder="Primer apellido"
-                  value="Viera"
-                />
-                <input
-                  type="text"
-                  placeholder="Segundo nombre"
-                  value="Pablo"
-                />
-                <input
-                  type="text"
-                  placeholder="Segundo apellido"
-                  value="Castañeda"
-                />
-                <input type="text" placeholder="RUC" value="20190388564" />
-                <input type="text" placeholder="Razón social" value="Empresa S.A.C" />
-                <input type="text" placeholder="DNI" value="72365296" />
-                <input type="text" placeholder="Precio" value="600" />
-              </div>
+              ))}
             </div>
           </div>
         </section>

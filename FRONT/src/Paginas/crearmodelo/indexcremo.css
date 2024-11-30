@@ -1,0 +1,236 @@
+/* General Styles */
+.container-pedido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background-color: #f3e8ff; /* Fondo morado pastel */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header Styles */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    background-color: #e0c3fc; /* Fondo morado pastel más oscuro */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #5a189a; /* Morado oscuro */
+  }
+  
+  .search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #ffffff;
+  }
+  
+  .menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu span {
+    margin-right: 15px;
+    cursor: pointer;
+    color: #5a189a;
+    font-weight: bold;
+  }
+  
+  .menu-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  
+  /* Breadcrumb */
+  .breadcrumb {
+    margin: 20px 0;
+    font-size: 0.875rem;
+    color: #6c757d;
+    text-align: left;
+    width: 90%;
+  }
+  
+  /* Main Content */
+  .main-content {
+    width: 90%;
+    max-width: 1200px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  /* Model Section */
+  .model-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .model-left,
+  .model-right {
+    width: 48%;
+  }
+  
+  .section-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #495057;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .model-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .model-preview {
+    text-align: center;
+  }
+  
+  .model-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .model-title {
+    font-size: 1.2rem;
+    color: #5a189a;
+    font-weight: bold;
+  }
+  
+  .model-description {
+    font-size: 1rem;
+    color: #6c757d;
+  }
+  
+  .button-secondary {
+    background-color: #ffd6e8;
+    color: #5a189a;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .button-secondary:hover {
+    background-color: #ffcce1;
+  }
+  
+  /* Order Section */
+  .order-section {
+    margin-top: 20px;
+  }
+  
+  .order-details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .order-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  .button-primary {
+    background-color: #5a189a;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .button-primary:hover {
+    background-color: #6d28d9;
+  }
+  
+  .sizes {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .size-input {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  /* Client Section */
+  .client-section {
+    margin-top: 20px;
+  }
+  
+  .client-existing {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .client-new {
+    margin-top: 10px;
+  }
+  
+  .client-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .client-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  .order-actions {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .create-order-button {
+    background-color: #5a189a;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  
+  .create-order-button:hover {
+    background-color: #6d28d9;
+  }
