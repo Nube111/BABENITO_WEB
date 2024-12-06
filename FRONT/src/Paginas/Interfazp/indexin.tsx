@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import "./indexin.css";
 
 function Interfazp(): JSX.Element {
-  const [editableDate, setEditableDate] = useState("14 de Noviembre del 2024");
+  const [selectedDate, setSelectedDate] = useState<string>("");
 
   const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEditableDate(event.target.value);
+    setSelectedDate(event.target.value);
   };
 
   const handleSearchClick = () => {
-    alert(`Buscando pedidos para la fecha: ${editableDate}`);
+    if (selectedDate) {
+      alert(`Buscando pedidos para la fecha: ${selectedDate}`);
+    } else {
+      alert("Por favor, seleccione una fecha.");
+    }
   };
 
   return (
@@ -41,10 +45,11 @@ function Interfazp(): JSX.Element {
         <div className="orders-table">
           <div className="editable-date">
             <label htmlFor="editable-date-input">Pedidos del: </label>
+            {/* Usamos date para solo permitir la selección de fecha */}
             <input
               id="editable-date-input"
-              type="text"
-              value={editableDate}
+              type="date"
+              value={selectedDate}
               onChange={handleDateChange}
               className="date-input"
             />
@@ -78,7 +83,7 @@ function Interfazp(): JSX.Element {
                   </td>
                   <td>22</td>
                   <td>50</td>
-                  <td>S/. 1,000.00</td>
+                  <td>S/. 500.00</td>
                   <td>En espera</td>
                   <td>
                     <a href="#">Sobre el pedido</a>
@@ -94,3 +99,4 @@ function Interfazp(): JSX.Element {
 }
 
 export default Interfazp;
+
