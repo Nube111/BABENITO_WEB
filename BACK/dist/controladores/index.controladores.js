@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createModelo = exports.actualizarHojaTrabajo = exports.deleteHojaTrabajo = exports.createHojaTrabajo = exports.getHojaTrabajoPorEstado = exports.getModelo = exports.getUsers = void 0;
+exports.validarCredenciales = exports.createModelo = exports.actualizarHojaTrabajo = exports.deleteHojaTrabajo = exports.createHojaTrabajo = exports.getHojaTrabajoPorEstado = exports.getModelo = exports.getUsers = void 0;
 const database_1 = require("../database");
 //mostrar hoja de trabajo
 const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -113,3 +113,20 @@ const createModelo = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 exports.createModelo = createModelo;
 // actualizar modelo
 // eliminar modelo 
+// credenciales
+const validarCredenciales = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { usuario, contraseña } = req.body;
+    try {
+        // Llamar a la función en la base de datos
+        const result = yield database_1.pool.query(`SELECT ValidarCredencialesAdmin($1, $2) AS mensaje;`, [usuario, contraseña]);
+        // Obtener el mensaje retornado por la función
+        const mensaje = result.rows[0].mensaje;
+        // Responder con el mensaje
+        res.json({ mensaje });
+    }
+    catch (error) {
+        console.error('Error al validar credenciales:', error);
+        res.status(500).json({ error: 'Error al validar credenciales' });
+    }
+});
+exports.validarCredenciales = validarCredenciales;

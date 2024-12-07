@@ -147,3 +147,27 @@ export const createModelo = async (req: Request, res: Response): Promise<void> =
 // actualizar modelo
 
 // eliminar modelo 
+
+
+// credenciales
+
+export const validarCredenciales = async (req: Request, res: Response): Promise<void> => {
+    const { usuario, contraseña } = req.body;
+
+    try {
+        // Llamar a la función en la base de datos
+        const result = await pool.query(
+            `SELECT ValidarCredencialesAdmin($1, $2) AS mensaje;`,
+            [usuario, contraseña]
+        );
+
+        // Obtener el mensaje retornado por la función
+        const mensaje = result.rows[0].mensaje;
+
+        // Responder con el mensaje
+        res.json({ mensaje });
+    } catch (error) {
+        console.error('Error al validar credenciales:', error);
+        res.status(500).json({ error: 'Error al validar credenciales' });
+    }
+};
