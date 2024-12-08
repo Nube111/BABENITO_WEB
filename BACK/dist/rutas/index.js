@@ -15,6 +15,7 @@ router.post('/updateHojaTrabajo', index_controladores_1.actualizarHojaTrabajo);
 router.post('/hoja-trabajo/estado', index_controladores_1.getHojaTrabajoPorEstado);
 router.post('/createModelo', index_controladores_1.createModelo);
 router.post('/logeo', index_controladores_1.validarCredenciales);
+router.post('/filtrarfecha', index_controladores_1.filtrarPorFecha);
 //router.post('/updateModelo',)
 //router.post('/deleteModelo',)
 //router.get('users/:id', getUsers); //usurio específico

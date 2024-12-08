@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validarCredenciales = exports.createModelo = exports.actualizarHojaTrabajo = exports.deleteHojaTrabajo = exports.createHojaTrabajo = exports.getHojaTrabajoPorEstado = exports.getModelo = exports.getUsers = void 0;
+exports.filtrarPorFecha = exports.validarCredenciales = exports.createModelo = exports.actualizarHojaTrabajo = exports.deleteHojaTrabajo = exports.createHojaTrabajo = exports.getHojaTrabajoPorEstado = exports.getModelo = exports.getUsers = void 0;
 const database_1 = require("../database");
 //mostrar hoja de trabajo
 const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -130,3 +130,28 @@ const validarCredenciales = (req, res) => __awaiter(void 0, void 0, void 0, func
     }
 });
 exports.validarCredenciales = validarCredenciales;
+//filtrar hoja de trabajo 
+const filtrarPorFecha = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { fecha } = req.body; // La fecha se obtiene del cuerpo de la solicitud
+    try {
+        // Validar que la fecha no esté vacía
+        if (!fecha) {
+            res.status(400).json({ error: 'La fecha es requerida' });
+            return;
+        }
+        // Llamar a la función almacenada en la base de datos
+        const result = yield database_1.pool.query(`SELECT * FROM filtrar_por_fecha($1);`, [fecha]);
+        // Verifica si hay datos en el resultado
+        if (result.rows.length === 0) {
+            res.status(404).json({ mensaje: 'No se encontraron datos para la fecha especificada' });
+            return;
+        }
+        // Enviar los datos obtenidos
+        res.json({ datos: result.rows });
+    }
+    catch (error) {
+        console.error('Error al filtrar por fecha:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+});
+exports.filtrarPorFecha = filtrarPorFecha;

@@ -3,14 +3,36 @@ import "./indexin.css";
 
 function Interfazp(): JSX.Element {
   const [selectedDate, setSelectedDate] = useState<string>("");
+  const [pedidos, setPedidos] = useState<any[]>([]); // Para almacenar los datos de los pedidos recibidos
 
   const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedDate(event.target.value);
   };
 
-  const handleSearchClick = () => {
+  const handleSearchClick = async () => {
     if (selectedDate) {
-      alert(`Buscando pedidos para la fecha: ${selectedDate}`);
+      // Convertir la fecha seleccionada al formato JSON necesario
+      const datePayload = { fecha: selectedDate };
+      
+      try {
+        const response = await fetch("http://localhost:4000/filtrarfecha", {
+          method: "POST", // Enviamos como POST ya que se está enviando un JSON
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(datePayload), // Enviamos la fecha al backend
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setPedidos(data.datos); // Al recibir la respuesta, actualizamos el estado de los pedidos
+        } else {
+          alert("Error al obtener los pedidos.");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Hubo un error al realizar la solicitud.");
+      }
     } else {
       alert("Por favor, seleccione una fecha.");
     }
@@ -45,7 +67,6 @@ function Interfazp(): JSX.Element {
         <div className="orders-table">
           <div className="editable-date">
             <label htmlFor="editable-date-input">Pedidos del: </label>
-            {/* Usamos date para solo permitir la selección de fecha */}
             <input
               id="editable-date-input"
               type="date"
@@ -69,8 +90,8 @@ function Interfazp(): JSX.Element {
               </tr>
             </thead>
             <tbody>
-              {[...Array(4)].map((_, index) => (
-                <tr key={index}>
+              {pedidos.map((pedido) => (
+                <tr key={pedido.id_pedido}>
                   <td>
                     <div className="order-item">
                       <img
@@ -78,13 +99,13 @@ function Interfazp(): JSX.Element {
                         alt="Zapato"
                         className="order-image"
                       />
-                      <span>Pedido "código de pedido"</span>
+                      <span>Pedido {pedido.id_pedido}</span>
                     </div>
                   </td>
-                  <td>22</td>
-                  <td>50</td>
-                  <td>S/. 500.00</td>
-                  <td>En espera</td>
+                  <td>{pedido.numtalla}</td>
+                  <td>{pedido.cantidad_producto}</td>
+                  <td>S/. {pedido.precio_total.toFixed(2)}</td>
+                  <td>En espera</td> {/* Puedes reemplazar este estado si está en la respuesta */}
                   <td>
                     <a href="#">Sobre el pedido</a>
                   </td>
@@ -99,4 +120,3 @@ function Interfazp(): JSX.Element {
 }
 
 export default Interfazp;
-
