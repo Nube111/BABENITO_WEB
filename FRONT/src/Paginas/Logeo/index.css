@@ -1,15 +1,17 @@
 /* index.css */
+body {
+  background-color: #FFF0E5; /* color de la base */}
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 100px;
   }
   
   .login-section {
     width: 100%;
-    max-width: 400px;
+    max-width: 800px;
     margin: 20px;
     padding: 20px;
     background-color: #f9f9f9;
@@ -21,15 +23,18 @@
     font-size: 2rem;
     margin-bottom: 10px;
     text-align: center;
+    color: #D058FF;
   }
   
   .welcome-text {
+    color: #000000;
     font-size: 1.2rem;
     margin-bottom: 20px;
     text-align: center;
   }
   
   .login-title {
+    color: #FFB662;
     font-size: 1.5rem;
     margin-bottom: 20px;
     text-align: center;
@@ -41,30 +46,37 @@
   }
   
   .input-field {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    background-color: #FFF6F4;
+    
   }
   
+  
   .forgot-password {
+    font-family: Arial, sans-serif;
     display: block;
     margin-top: 10px;
     text-align: right;
-    font-size: 0.9rem;
-    color: #007bff;
+    font-size: 0.8rem;
+    color: #cccccc;
     text-decoration: none;
+    font-weight: lighter; 
   }
   
   .forgot-password:hover {
+    
     text-decoration: underline;
+    
   }
   
   .login-button {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #F47458;
     color: white;
     border: none;
     border-radius: 4px;
@@ -77,12 +89,15 @@
   }
   
   .logo-section {
-    margin-top: 20px;
+    margin-top: 40px;
   }
   
   .logo-image {
     max-width: 100%;
-    height: auto;
+    /*height: auto;*/
+    width: 800px;
+    height: 500px;
+   
     border-radius: 8px;
   }
   
@@ -94,11 +109,11 @@
     }
   
     .login-section {
-      width: 45%;
+      width: 100%;
     }
   
     .logo-section {
-      width: 45%;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
