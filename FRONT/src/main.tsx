@@ -10,6 +10,10 @@ import CrearPedido from './Paginas/crearpedido/indexcrepe'
 import CrearModelo from './Paginas/crearmodelo/Indexcremo'
 
 import './index.css'
+import Trabajador from './Paginas/Trabajador'
+import PanelTrabajador from './Paginas/PanelTrabajador/index'
+import Datospedido from './Paginas/Datospedido/index'; 
+
 
 
 const rutas = createBrowserRouter([
@@ -45,7 +49,23 @@ const rutas = createBrowserRouter([
 
   },
 
+  {
+    path:"/Trabajador",
+    element: <Trabajador></Trabajador>,
 
+  },
+
+  {
+    path:"/PanelTrabajador",
+    element: <PanelTrabajador></PanelTrabajador>,
+
+  },
+
+  {
+    path:"/Datospedido",
+    element: <Datospedido></Datospedido>,
+
+  },
 
  
 ])

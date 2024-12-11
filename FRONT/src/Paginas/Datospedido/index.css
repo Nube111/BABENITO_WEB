@@ -1,0 +1,136 @@
+/* Contenedor principal */
+.order-form-container {
+  font-family: Arial, sans-serif;
+  background-color: #fff6fb; /* Fondo rosado claro */
+  padding: 20px;
+  color: #333;
+  height: 100vh; /* Ocupa toda la altura del navegador */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between; /* Distribuye contenido verticalmente */
+}
+
+/* Encabezado */
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.form-header h1 {
+  font-size: 28px;
+  color: #b32aa9; /* Color púrpura del logo */
+  font-weight: bold;
+  margin: 0;
+}
+
+.form-header input {
+  flex: 1;
+  margin-left: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #e2cce3;
+  border-radius: 5px;
+  max-width: 400px;
+}
+
+/* Formulario principal */
+.form-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-section {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-section input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #e2cce3;
+  border-radius: 5px;
+  background-color: #fff6fb;
+}
+
+/* Botón para crear pedido */
+.create-order-button {
+  background-color: #b32aa9;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  align-self: center;
+  width: fit-content;
+}
+
+.create-order-button:hover {
+  background-color: #9f2090;
+}
+
+/* Tabla de resultados */
+.table-container {
+  overflow-x: auto;
+  flex: 1;
+}
+
+.pedido-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pedido-table th,
+.pedido-table td {
+  padding: 10px 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.pedido-table th {
+  background-color: #ffc8a2;
+  color: #333;
+  font-weight: bold;
+}
+
+.pedido-table tbody tr:hover {
+  background-color: #fce6db;
+}
+
+/* Ajuste de imágenes */
+.pedido-imagen {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid #e2cce3;
+  background-color: #fff6fb;
+}

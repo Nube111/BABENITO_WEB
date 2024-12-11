@@ -1,0 +1,80 @@
+.area-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: #fde7f0; /* Fondo rosado claro */
+  height: 100vh; /* Ocupar toda la ventana del navegador */
+  width: 100vw; /* Asegura el ancho completo del viewport */
+  box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
+}
+
+.title {
+  font-size: 28px;
+  color: #ff66b3;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  width: 80%; /* Ajusta el tamaño relativo al contenedor */
+  max-width: 600px; /* Limita el ancho máximo */
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ff99cc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.area-cards {
+  display: grid; /* Diseño de cuadrícula */
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+  grid-template-rows: repeat(2, auto); /* Dos filas con tamaño automático */
+  grid-gap: 20px; /* Espacio entre tarjetas */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  height: calc(100% - 120px); /* Ajusta el espacio restante */
+  padding: 20px;
+  box-sizing: border-box; /* Incluye padding en el tamaño total */
+}
+
+.area-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: transform 0.3s ease-in-out;
+}
+
+.area-card:hover {
+  transform: scale(1.05);
+}
+
+.area-image {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  border-radius: 8px;
+  border: 2px solid #ff99cc;
+}
+
+.area-details {
+  flex: 1;
+}
+
+.area-name {
+  font-size: 20px;
+  color: #ff66b3;
+  margin: 0;
+}
+
+.area-description,
+.area-status,
+.area-issue {
+  margin: 5px 0;
+  color: #333333;
+  font-size: 14px;
+}
