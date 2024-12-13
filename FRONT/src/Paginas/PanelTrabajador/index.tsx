@@ -30,6 +30,9 @@ const pedidos = [
 ];
 
 const PanelTrabajador: React.FC = () => {
+  const token = localStorage.get("token")
+  if (!token) return <p>Usuario no logueado</p>;
+  
   const [searchTerm, setSearchTerm] = useState("");
 
   // Filtrar los pedidos según el término de búsqueda
