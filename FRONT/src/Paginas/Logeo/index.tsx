@@ -37,6 +37,7 @@ function Logeo(): JSX.Element {
         // Comprobar si las credenciales son correctas
         if (data.mensaje === "Contraseña correcta") {
           // Si es correcto, redirigir a la interfaz
+          localStorage.save("token", data.mensaje);
           navigate("/interfazp");
         } else {
           // Si no es correcto, mostrar un mensaje de error
