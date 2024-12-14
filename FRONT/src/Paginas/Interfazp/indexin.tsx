@@ -1,14 +1,19 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Para redirigir
 import "./indexin.css";
 
 function Interfazp(): JSX.Element {
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [pedidos, setPedidos] = useState<any[]>([]); // Para almacenar los datos de los pedidos recibidos
-
+  const navigate = useNavigate()//redirigir
+  const handleNavigation = () => {
+    navigate("/crearmodelo");
+  };
   const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedDate(event.target.value);
   };
 
+  
   const handleSearchClick = async () => {
     if (selectedDate) {
       // Convertir la fecha seleccionada al formato JSON necesario
@@ -62,7 +67,8 @@ function Interfazp(): JSX.Element {
           <p className="subtitle">
             Para crear un nuevo pedido presionar el botón "Crear nuevo pedido"...
           </p>
-          <button className="new-order-button">+ Crear nuevo pedido</button>
+          <button className="new-order-button" onClick={handleNavigation}>+ Crear nuevo pedido</button>
+          
         </div>
         <div className="orders-table">
           <div className="editable-date">

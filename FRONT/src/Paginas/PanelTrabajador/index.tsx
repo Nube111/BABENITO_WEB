@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 
 // Datos de ejemplo
@@ -30,10 +30,22 @@ const pedidos = [
 ];
 
 const PanelTrabajador: React.FC = () => {
-  const token = localStorage.get("token")
+  const token = localStorage.getItem("token");
   if (!token) return <p>Usuario no logueado</p>;
-  
+
   const [searchTerm, setSearchTerm] = useState("");
+
+  // Eliminar token al cerrar la pestaña
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.removeItem("token");
+    };
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
 
   // Filtrar los pedidos según el término de búsqueda
   const filteredPedidos = pedidos.filter((pedido) =>
