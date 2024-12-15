@@ -41,6 +41,7 @@ function SobrePedido(): JSX.Element {
       </header>
       <main className="content">
         <h2 className="breadcrumb">Pedidos &gt; Sobre pedido</h2>
+
         <section className="model-section">
           <div className="model-left">
             <label htmlFor="model-code" className="section-label">
@@ -54,7 +55,7 @@ function SobrePedido(): JSX.Element {
               className="model-input"
             />
             <div className="model-preview">
-              <img src="./modelo.jpg" alt="Modelo" className="model-image" />
+              <img src="./zapato-cocco.jpg" alt="Modelo" className="model-image" />
               <p className="model-title">Modelo {modelo}</p>
               <p className="model-description">Datos esenciales del modelo...</p>
             </div>
@@ -68,31 +69,53 @@ function SobrePedido(): JSX.Element {
             <button className="model-list-button">Lista de modelos</button>
           </div>
         </section>
+
         <section className="order-details">
-          <h3 className="section-label">Datos específicos del pedido</h3>
-          <div className="form-grid">
+  <h3 className="section-label">Datos específicos del pedido</h3>
+
+  {/* Contenedor para Serie y Cantidad por tallas */}
+  <div className="serie-tallas-container">
+    {/* Buscar Serie */}
+    <div className="serie-section">
+      <button className="search-button">Buscar serie</button>
+      <input
+        type="text"
+        value={serie}
+        onChange={(e) => setSerie(e.target.value)}
+        className="order-input serie-input"
+        placeholder="Serie"
+      />
+    </div>
+
+    {/* Cantidad por tallas */}
+    <div className="cantidad-tallas">
+      <label className="size-label">Cantidad por tallas:</label>
+      <div className="cantidad-inputs">
+        {/* Solo mostrar los recuadros editables para tallas 14, 15 y 16 */}
+        {["14", "15", "16"].map((talla) => (
+          <div key={talla} className="input-group">
             <input
               type="text"
-              value={serie}
-              onChange={(e) => setSerie(e.target.value)}
-              className="order-input"
-              placeholder="Serie"
+              value={tallas[talla]}
+              onChange={(e) => handleTallasChange(talla, e.target.value)}
+              className="size-input"
+              placeholder="Cantidad"
             />
-            <button className="search-button">Buscar serie</button>
-            <div className="sizes">
-              <label className="size-label">Cantidad por tallas:</label>
-              {Object.keys(tallas).map((talla) => (
-                <input
-                  key={talla}
-                  type="text"
-                  value={tallas[talla]}
-                  onChange={(e) => handleTallasChange(talla, e.target.value)}
-                  className="size-input"
-                />
-              ))}
-            </div>
+            <input
+              type="text"
+              value={talla}
+              disabled
+              className="size-input"
+            />
           </div>
-        </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        {/* Sección Cliente */}
         <section className="client-details">
           <h3 className="section-label">Cliente</h3>
           <div className="form-grid">
@@ -127,6 +150,8 @@ function SobrePedido(): JSX.Element {
             </div>
           </div>
         </section>
+
+        {/* Botón de Actualizar Pedido */}
         <button className="update-button">Actualizar pedido</button>
       </main>
     </div>

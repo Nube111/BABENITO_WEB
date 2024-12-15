@@ -1,24 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Para redirigir
 import "./indexin.css";
 
 function Interfazp(): JSX.Element {
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [pedidos, setPedidos] = useState<any[]>([]); // Para almacenar los datos de los pedidos recibidos
-  const navigate = useNavigate()//redirigir
+  const navigate = useNavigate(); //redirigir
+
+  // Verificar si hay un token al cargar la página
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      // Si no hay token, redirigir al login
+      navigate("/"); // Cambia "/login" por la ruta que uses para el login
+    }
+
+    const handleBeforeUnload = () => {
+      localStorage.removeItem("token");
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [navigate]);
+
   const handleNavigation = () => {
     navigate("/crearmodelo");
   };
+
   const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedDate(event.target.value);
   };
 
-  
   const handleSearchClick = async () => {
     if (selectedDate) {
       // Convertir la fecha seleccionada al formato JSON necesario
       const datePayload = { fecha: selectedDate };
-      
+
       try {
         const response = await fetch("http://localhost:4000/filtrarfecha", {
           method: "POST", // Enviamos como POST ya que se está enviando un JSON
@@ -68,7 +88,6 @@ function Interfazp(): JSX.Element {
             Para crear un nuevo pedido presionar el botón "Crear nuevo pedido"...
           </p>
           <button className="new-order-button" onClick={handleNavigation}>+ Crear nuevo pedido</button>
-          
         </div>
         <div className="orders-table">
           <div className="editable-date">
@@ -113,7 +132,7 @@ function Interfazp(): JSX.Element {
                   <td>S/. {pedido.precio_total.toFixed(2)}</td>
                   <td>En espera</td> {/* Puedes reemplazar este estado si está en la respuesta */}
                   <td>
-                    <a href="#">Sobre el pedido</a>
+                  <a href="#" onClick={() => navigate("/sobrepedido")}>Sobre el pedido</a> {/* agregado para redirigir sin id */}
                   </td>
                 </tr>
               ))}
